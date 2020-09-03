@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "telegraf": "^3.38.0"
+    "redis": "^3.0.2",
+    "redis-rejson": "^1.0.0",
+    "telegraf": "^3.38.0",
+    "telegraf-session-redis": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^14.6.3",
