@@ -2,36 +2,36 @@ import { shuffle } from './utils'
 
 type Role =
   | {
-      name: 'Merlin'
-      alignment: 'good'
+      role: 'Merlin'
+      team: 'Good'
     }
   | {
-      name: 'Percival'
-      alignment: 'good'
+      role: 'Percival'
+      team: 'Good'
     }
   | {
-      name: 'Knight'
-      alignment: 'good'
+      role: 'Knight'
+      team: 'Good'
     }
   | {
-      name: 'Minion'
-      alignment: 'evil'
+      role: 'Minion'
+      team: 'Evil'
     }
   | {
-      name: 'Morgana'
-      alignment: 'evil'
+      role: 'Morgana'
+      team: 'Evil'
     }
   | {
-      name: 'Mordred'
-      alignment: 'evil'
+      role: 'Mordred'
+      team: 'Evil'
     }
   | {
-      name: 'Assassin'
-      alignment: 'evil'
+      role: 'Assassin'
+      team: 'Evil'
     }
   | {
-      name: 'Oberon'
-      alignment: 'evil'
+      role: 'Oberon'
+      team: 'Evil'
     }
 
 export type User = {
@@ -69,22 +69,21 @@ export const generateRoles = (players: User[]): Player[] => {
   }
 
   const roles: Role[] = [
-    { name: 'Merlin', alignment: 'good' },
-    { name: 'Percival', alignment: 'good' },
-    { name: 'Knight', alignment: 'good' },
-    { name: 'Morgana', alignment: 'evil' },
-    { name: 'Assassin', alignment: 'evil' },
+    { role: 'Merlin', team: 'Good' },
+    { role: 'Percival', team: 'Good' },
+    { role: 'Knight', team: 'Good' },
+    { role: 'Morgana', team: 'Evil' },
+    { role: 'Assassin', team: 'Evil' },
   ]
 
-  if (numberOfPlayers >= 6) roles.push({ name: 'Knight', alignment: 'good' })
-  if (numberOfPlayers >= 8) roles.push({ name: 'Knight', alignment: 'good' })
-  if (numberOfPlayers >= 9) roles.push({ name: 'Knight', alignment: 'good' })
+  if (numberOfPlayers >= 6) roles.push({ role: 'Knight', team: 'Good' })
+  if (numberOfPlayers >= 8) roles.push({ role: 'Knight', team: 'Good' })
+  if (numberOfPlayers >= 9) roles.push({ role: 'Knight', team: 'Good' })
 
-  if (numberOfPlayers === 7 || numberOfPlayers === 8)
-    roles.push({ name: 'Minion', alignment: 'evil' })
-  else if (numberOfPlayers > 8) roles.push({ name: 'Mordred', alignment: 'evil' })
+  if (numberOfPlayers === 7 || numberOfPlayers === 8) roles.push({ role: 'Minion', team: 'Evil' })
+  else if (numberOfPlayers > 8) roles.push({ role: 'Mordred', team: 'Evil' })
 
-  if (numberOfPlayers === 10) roles.push({ name: 'Oberon', alignment: 'evil' })
+  if (numberOfPlayers === 10) roles.push({ role: 'Oberon', team: 'Evil' })
 
   return [...players].map((player, index) => ({
     ...player,
